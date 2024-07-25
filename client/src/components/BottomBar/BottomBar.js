@@ -1,5 +1,6 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
+import { FaDesktop } from 'react-icons/fa';
 
 const BottomBar = ({
   clickChat,
@@ -44,6 +45,9 @@ const BottomBar = ({
         <ChatButton onClick={clickChat}>
             <button>Chat</button>
         </ChatButton>
+        <ScreenButton onClick={clickScreenSharing}>
+          <FaDesktop className={screenShare ? 'sharing' : ''} />
+        </ScreenButton>
       </Left>
       <Right>
         <StopButton onClick={goToBack}>Stop</StopButton>
@@ -98,10 +102,15 @@ const ChatButton = styled.div`
 `;
 
 const ScreenButton = styled.div`
-  width: auto;
-  border: none;
-  font-size: 0.9375rem;
-  padding: 5px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-align: center;
+  height: 40px;
+  font-size: calc(16px + 1vmin);
+  background: #0094ff;
 
   :hover {
     background-color: #77b7dd;
