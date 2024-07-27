@@ -59,7 +59,7 @@ const BottomBar = ({
 const Bar = styled.div`
   position: absolute;
   right: 0;
-  bottom: 170px;
+  bottom: 0;
   width: 100%;
   height: 8%;
   display: flex;
@@ -125,7 +125,7 @@ const ScreenButton = styled.div`
 
 const FaIcon = styled.i`
   width: 30px;
-  font-size: calc(16px + 1vmin);
+  font-size: calc(10px + 1vmin);
 `;
 
 const StopButton = styled.div`
@@ -162,6 +162,11 @@ const CameraButton = styled.div`
 
   * {
     pointer-events: none;
+    display: flex;
+    pointer-events: none;
+    /* align-self: center; */
+    align-items: center;
+    justify-content: center;
   }
 
   .fa-microphone-slash {
