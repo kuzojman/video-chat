@@ -105,9 +105,11 @@ io.on('connection', (socket) => {
     } else {
       socketList[socket.id].audio = !socketList[socket.id].audio;
     }
+  
+    // Отправляем обновленное состояние всем участникам
     socket.broadcast
       .to(roomId)
-      .emit('FE-toggle-camera', { userId: socket.id, switchTarget });
+      .emit('FE-toggle-camera', { userId: socket.id, switchTarget, video: socketList[socket.id].video, audio: socketList[socket.id].audio });
   });
 });
 
