@@ -34,7 +34,7 @@ const Chat = ({ display, roomId }) => {
 
   return (
     <ChatContainer className={display ? '' : 'width0'}>
-      <TopHeader>Group Chat Room</TopHeader>
+      <TopHeader>Чат комнаты: {roomId}</TopHeader>
       <ChatArea>
         <MessageList>
           {msg &&
@@ -61,7 +61,7 @@ const Chat = ({ display, roomId }) => {
       <BottomInput
         ref={inputRef}
         onKeyUp={sendMessage}
-        placeholder="Enter your message"
+        placeholder="Введите сообщение"
       />
     </ChatContainer>
   );
@@ -69,12 +69,17 @@ const Chat = ({ display, roomId }) => {
 
 const ChatContainer = styled.div`
   display: flex;
+  position: absolute;
   flex-direction: column;
-  width: 25%;
-  hieght: 100%;
+  width: 20%;
+  height: 99%;
   background-color: white;
   transition: all 0.5s ease;
+  border-radius: 10px;
   overflow: hidden;
+  bottom: 5px;
+  right: 5px;
+}
 `;
 
 const TopHeader = styled.div`
