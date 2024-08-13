@@ -1,57 +1,26 @@
-import React, { useEffect, useRef } from "react";
-import styled from "styled-components";
-import { FaMicrophoneSlash, FaVideoSlash } from "react-icons/fa";
-
-const VideoCard = ({ peer, video, audio }) => {
+import React, { useEffect, useRef } from 'react';
+import styled from 'styled-components';
+const VideoCard = (props) => {
   const ref = useRef();
+  const peer = props.peer;
 
   useEffect(() => {
-    peer.on("stream", (stream) => {
+    peer.on('stream', (stream) => {
       ref.current.srcObject = stream;
+    });
+    peer.on('track', (track, stream) => {
     });
   }, [peer]);
 
   return (
-    <VideoContainer>
-      <Video playsInline autoPlay ref={ref} />
-      <StatusIcons>
-        {!video && (
-          <Icon>
-            <FaVideoSlash />
-          </Icon>
-        )}{" "}
-        {/* Иконка камеры */}
-        {!audio && (
-          <Icon>
-            <FaMicrophoneSlash />
-          </Icon>
-        )}{" "}
-        {/* Иконка микрофона */}{" "}
-      </StatusIcons>
-    </VideoContainer>
+    <Video
+      playsInline
+      autoPlay
+      ref={ref}
+    />
   );
 };
 
-const VideoContainer = styled.div`
-  position: relative;
-`;
-
-const Video = styled.video`
-  width: 100%;
-  height: 100%;
-`;
-
-const StatusIcons = styled.div`
-  position: absolute;
-  top: 5px;
-  right: 5px;
-  display: flex;
-  gap: 5px;
-`;
-
-const Icon = styled.span`
-  font-size: 18px;
-  color: red;
-`;
+const Video = styled.video``;
 
 export default VideoCard;
