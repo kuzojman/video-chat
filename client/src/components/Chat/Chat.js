@@ -79,6 +79,7 @@ const ChatContainer = styled.div`
   overflow: hidden;
   bottom: 5px;
   right: 5px;
+  z-index: 5;
 }
 `;
 
