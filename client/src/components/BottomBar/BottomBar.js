@@ -1,6 +1,8 @@
 import React, { useCallback } from 'react';
 import styled from 'styled-components';
 import { FaDesktop } from 'react-icons/fa';
+import { FaPhone } from 'react-icons/fa';
+import { FaComment } from 'react-icons/fa';
 
 const BottomBar = ({
   clickChat,
@@ -42,15 +44,19 @@ const BottomBar = ({
             )}
           </div>
         </CameraButton>
-        <ChatButton onClick={clickChat}>
-            <button>Chat</button>
+      </Left>
+      <Center>
+      <ChatButton onClick={clickChat}>
+        <FaComment></FaComment>
         </ChatButton>
         <ScreenButton onClick={clickScreenSharing}>
           <FaDesktop className={screenShare ? 'sharing' : ''} />
         </ScreenButton>
-      </Left>
+      </Center>
       <Right>
-        <StopButton onClick={goToBack}>Stop</StopButton>
+        <StopButton onClick={goToBack}>
+        <FaPhone></FaPhone>
+        </StopButton>
       </Right>
     </Bar>
   );
@@ -80,20 +86,27 @@ const Center = styled.div`
   flex: 1;
   display: flex;
   justify-content: center;
+  gap: 10px;
 `;
 
 const Right = styled.div``;
 
+
+
 const ChatButton = styled.div`
-  width: 75px;
-  border: none;
-  font-size: 0.9375rem;
-  padding: 5px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-align: center;
+  height: 40px;
+  font-size: calc(16px + 1vmin);
+  background: #0094ff;
 
   :hover {
-    background-color: #77b7dd;
+    opacity: .7;
     cursor: pointer;
-    border-radius: 15px;
   }
 
   * {
@@ -113,9 +126,8 @@ const ScreenButton = styled.div`
   background: #0094ff;
 
   :hover {
-    background-color: #77b7dd;
+    opacity: .7;
     cursor: pointer;
-    border-radius: 15px;
   }
 
   .sharing {
@@ -129,22 +141,25 @@ const FaIcon = styled.i`
 `;
 
 const StopButton = styled.div`
-  width: 75px;
-  height: 30px;
-  border: none;
-  font-size: 0.9375rem;
-  line-height: 30px;
-  margin-right: 15px;
+margin-right: 15px;
+width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+  text-align: center;
+  height: 40px;
+  font-size: calc(13px + 1vmin);
   background-color: #ee2560;
-  border-radius: 15px;
 
   :hover {
-    background-color: #f25483;
+    opacity: .7;
     cursor: pointer;
   }
 `;
 
 const CameraButton = styled.div`
+
   width: 40px;
     display: flex;
     align-items: center;
