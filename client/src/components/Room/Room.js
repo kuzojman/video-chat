@@ -420,6 +420,7 @@ const Room = (props) => {
 const RoomContainer = styled.div`
   width: 100%;
   height: 100%;
+  object-fit: cover;
 `;
 
 const MainVideoContainer = styled.div`
@@ -432,17 +433,17 @@ const MainVideoContainer = styled.div`
   overflow: hidden;
   width: ${({ displayChat }) => (displayChat ? "calc(100% - 300px)" : "100%")};
   transition: width 0.3s ease-in-out;
-  grid-template-columns: repeat(auto-fit, minmax(955px, 1fr));
-  grid-auto-rows: minmax(450px, auto);
+  grid-template-columns: repeat(auto-fit, minmax(755px, 1fr));
+  grid-auto-rows: minmax(350px, auto);
   place-items: center;
 
   @media (max-width: 1920px) {
-    grid-template-columns: repeat(auto-fit, minmax(955px, 1fr));
-    grid-auto-rows: minmax(450px, auto);
+    grid-template-columns: repeat(auto-fit, minmax(755px, 1fr));
+    grid-auto-rows: minmax(350px, auto);
   }
 
   @media (max-width: 1280px) {
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(700px, 1fr));
     grid-auto-rows: minmax(169px, auto);
   }
 
@@ -458,8 +459,8 @@ const VideoBox = styled.div`
   align-items: flex-end;
   justify-content: center;
   > video {
-    width: ${({ numPeers }) => (numPeers <= 4 ? "955px" : "calc(100% / 3)")};
-    height: ${({ numPeers }) => (numPeers <= 4 ? "450px" : "auto")};
+    width: ${({ numPeers }) => (numPeers <= 4 ? "755px" : "calc(100% / 3)")};
+    height: ${({ numPeers }) => (numPeers <= 4 ? "350px" : "auto")};
     border-radius: 10px;
     object-fit: cover;
   }
@@ -467,8 +468,8 @@ const VideoBox = styled.div`
 
 const SingleUserBlock = styled.div`
   position: relative;
-  width: 955px;
-  height: 450px;
+  width: 755px;
+  height: 350px;
   background-color: black;
   display: flex;
   align-items: center;

@@ -34,11 +34,17 @@ const VideoCard = ({ peer, video, audio }) => {
 
 const VideoContainer = styled.div`
   position: relative;
+  width: 755px;
+    height: 350px;
+    border-radius: 10px;
+    object-fit: cover;
 `;
 
 const Video = styled.video`
   width: 100%;
   height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
 `;
 
 const StatusIcons = styled.div`
