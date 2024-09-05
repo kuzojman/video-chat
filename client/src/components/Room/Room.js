@@ -7,7 +7,12 @@ import BottomBar from "../BottomBar/BottomBar";
 import Chat from "../Chat/Chat";
 
 const Room = (props) => {
-  const currentUser = sessionStorage.getItem("user");
+
+  const generateRandomName = () => {
+    return `User_${Math.floor(Math.random() * 10000)}`;
+  };
+  const currentUser = sessionStorage.getItem("user") || generateRandomName();
+    sessionStorage.setItem("user", currentUser);
   const [peers, setPeers] = useState([]);
   const [userVideoAudio, setUserVideoAudio] = useState({
     localUser: { video: true, audio: true },
@@ -225,7 +230,7 @@ const Room = (props) => {
     socket.emit("BE-leave-room", { roomId, leaver: currentUser });
     sessionStorage.removeItem("user");
     window.location.href = "/";
-  };
+};  
 
   const toggleCameraAudio = (e) => {
     const target = e.target.getAttribute("data-switch");
